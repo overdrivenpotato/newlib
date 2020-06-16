@@ -6,8 +6,8 @@
 	.ent    pspDisableInterrupts
 
 pspDisableInterrupts:
-	mfic	$v0, $0
-	mtic	$0, $0
+    .word 0x70020024 // mfic	$v0, $0
+	.word 0x70000026 // mtic	$0, $0
 	nop
 	nop
 	nop
@@ -38,7 +38,7 @@ pspDisableInterrupts:
 	.ent    pspEnableInterrupts
 
 pspEnableInterrupts:
-	mtic	$a0, $0
+	.word 0x70040026 // mtic	$a0, $0
 	nop
 	nop
 	nop
