@@ -57,7 +57,7 @@
  */
 	nop
 
-	.globl	hardware_hazard_hook .text
+	.globl	hardware_hazard_hook
 	.globl	_start
 	.ent	_start
 _start:
@@ -176,7 +176,7 @@ _start:
  * zero out the bss section.
  */
 	.globl	__memsize
-	.globl	get_mem_info .text
+	.globl	get_mem_info
 	.globl	__stack
 	.globl	__global
 	.ent	zerobss
@@ -216,12 +216,12 @@ zerobss:
  * initialize target specific stuff. Only execute these
  * functions it they exist.
  */
-	.globl	hardware_init_hook .text
-	.globl	software_init_hook .text
+	.globl	hardware_init_hook 
+	.globl	software_init_hook
 	.type	_fini,@function
 	.type	_init,@function
-	.globl	atexit .text
-	.globl	exit .text
+	.globl	atexit
+	.globl	exit
 	.ent	init
 init:
 	LA (t9, hardware_init_hook)		# init the hardware if needed
@@ -278,7 +278,7 @@ init:
  *          executables that contain a complete world to be linked with
  *          just the crt0.o object.
  */
-	.globl	hardware_exit_hook .text
+	.globl	hardware_exit_hook
 	.globl	_exit
 	.ent _exit
 _exit:

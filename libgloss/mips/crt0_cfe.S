@@ -173,12 +173,12 @@ _stackinit:
      * initialize target specific stuff. Only execute these
      * functions it they exist.
      */
-	.globl	hardware_init_hook .text
-	.globl	software_init_hook .text
+	.globl	hardware_init_hook
+	.globl	software_init_hook
 	.type	_fini,@function
 	.type	_init,@function
-	.globl	atexit .text
-	.globl	exit .text
+	.globl	atexit
+	.globl	exit
 	.globl	_crt0init
 	.ent	_crt0init
 _crt0init:

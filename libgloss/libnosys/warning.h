@@ -37,8 +37,12 @@
 
 /* A canned warning for sysdeps/stub functions.
    The GNU linker prepends a "warning: " string.  */
+#ifndef __clang__
 #define stub_warning(name) \
   link_warning (name, \
                 #name " is not implemented and will always fail")
+#else
+#define stub_warning(name)
+#endif
 
 #endif /* __WARNING_H__ */

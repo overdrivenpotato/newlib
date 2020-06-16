@@ -818,7 +818,16 @@ newlib_cflags="${newlib_cflags} -DCLOCK_PROVIDED -DMALLOC_PROVIDED -DEXIT_PROVID
 	default_newlib_io_long_long="yes"
 	sys_dir=psp
 	syscall_dir=syscalls
-	newlib_cflags="${newlib_cflags} -G0 -mno-explicit-relocs -DCOMPACT_CTYPE -DCLOCK_PROVIDED -DHAVE_FCNTL -DHAVE_RENAME -DMALLOC_ALIGNMENT=16 -I${prefix}/psp/sdk/include"
+	newlib_cflags="${newlib_cflags} -G0 -DCOMPACT_CTYPE -DCLOCK_PROVIDED -DHAVE_FCNTL -DHAVE_RENAME -DMALLOC_ALIGNMENT=16 -I${prefix}/psp/sdk/include"
+
+	case "$CC" in
+	  *clang*)
+	    newlib_cflags="${newlib_cflags} -ffreestanding -target mips -mcpu=mips2 -msingle-float -mlittle-endian -mno-check-zero-division -D__psp__ -DDISABLE_PREFETCH"
+	    ;;
+	  *gcc*)
+	    newlib_cflags="${newlib_cflags} -mno-explicit-relocs"
+	    ;;
+	esac
 	;;
   mips*-*-elf*)
 	default_newlib_io_long_long="yes"
