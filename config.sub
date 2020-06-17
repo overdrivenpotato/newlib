@@ -870,6 +870,10 @@ case $basic_machine in
 		cpu=i386
 		vendor=ibm
 		;;
+	psp)
+		cpu=mipsallegrexel
+		vendor=sony
+		;;
 	rm[46]00)
 		cpu=mips
 		vendor=siemens
@@ -1200,6 +1204,7 @@ case $cpu-$vendor in
 			| mips64vr4300 | mips64vr4300el \
 			| mips64vr5000 | mips64vr5000el \
 			| mips64vr5900 | mips64vr5900el \
+			| mipsallegrexel \
 			| mipsisa32 | mipsisa32el \
 			| mipsisa32r2 | mipsisa32r2el \
 			| mipsisa32r6 | mipsisa32r6el \

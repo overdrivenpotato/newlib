@@ -943,6 +943,9 @@ case "${target}" in
   m68*-*-* | fido-*-*)
     libgloss_dir=m68k
     ;;
+  mipsallegrex*-*-*)
+    noconfigdirs="$noconfigdirs target-libgloss"
+    ;;
   mips*-*-*)
     libgloss_dir=mips
     ;;
