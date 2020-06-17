@@ -13,7 +13,7 @@
  */
 #include <string.h>
 #include <sys/types.h>
-#include <sys/unistd.h>
+#include <sys/param.h>
 
 #include <psptypes.h>
 #include <pspiofilemgr.h>

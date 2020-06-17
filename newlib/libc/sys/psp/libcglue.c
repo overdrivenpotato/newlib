@@ -23,6 +23,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include <sys/unistd.h>
+#include <sys/param.h>
 #include <sys/dirent.h>
 #include <sys/socket.h>
 

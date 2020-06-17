@@ -814,17 +814,17 @@ newlib_cflags="${newlib_cflags} -DCLOCK_PROVIDED -DMALLOC_PROVIDED -DEXIT_PROVID
 	default_newlib_io_long_long="yes"
 	newlib_cflags="${newlib_cflags} -DMISSING_SYSCALL_NAMES"
 	;;
-  mipsallegrex*-psp-*)
+  mipsallegrex*-sony-*)
 	default_newlib_io_long_long="yes"
 	sys_dir=psp
 	syscall_dir=syscalls
 	newlib_cflags="${newlib_cflags} -G0 -DCOMPACT_CTYPE -DCLOCK_PROVIDED -DHAVE_FCNTL -DHAVE_RENAME -DMALLOC_ALIGNMENT=16 -I${prefix}/psp/sdk/include"
 
-	case "$CC" in
+	case "$CC_FOR_TARGET" in
 	  *clang*)
-	    newlib_cflags="${newlib_cflags} -ffreestanding -target mips -mcpu=mips2 -msingle-float -mlittle-endian -mno-check-zero-division -D__psp__ -DDISABLE_PREFETCH"
+	    newlib_cflags="${newlib_cflags} -ffreestanding -target mips -mcpu=mips2 -msingle-float -mlittle-endian -mno-check-zero-division -D__psp__ -DDISABLE_PREFETCH -D_LDBL_EQ_DBL"
 	    ;;
-	  *gcc*)
+	  *)
 	    newlib_cflags="${newlib_cflags} -mno-explicit-relocs"
 	    ;;
 	esac
