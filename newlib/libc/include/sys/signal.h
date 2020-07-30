@@ -222,7 +222,7 @@ int sigpause (int);
 int sigaltstack (const stack_t *__restrict, stack_t *__restrict);
 #endif
 
-#if __POSIX_VISIBLE >= 199506
+#if __POSIX_VISIBLE >= 199506 && !defined(__psp__)
 int pthread_kill (pthread_t, int);
 #endif
 
